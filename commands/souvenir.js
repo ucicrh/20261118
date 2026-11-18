@@ -13,6 +13,8 @@ export default async (event) => {
       .filter((value) => {
         return value.Name.includes(event.message.text.replace('查伴手禮', '').trim())
       })
+      // 隨機打亂後取前 3 筆
+      .sort(() => Math.random() - 0.5)
       .slice(0, 3)
       .map((value) => {
         return templateSouvenir(value)
