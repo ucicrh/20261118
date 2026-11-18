@@ -19,6 +19,8 @@ bot.on('message', (event) => {
     }
   } else if (event.message.type === 'location') {
     commandUbike(event)
+  } else if (event.message.type === 'Name') {
+    commandSouvenir(event)
   }
 })
 
