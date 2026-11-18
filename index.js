@@ -1,6 +1,7 @@
 import 'dotenv/config'
 import linebot from 'linebot'
 import commandFarm from './commands/farm.js'
+import commandSouvenir from './commands/souvenir.js'
 import commandUbike from './commands/ubike.js'
 import commandWda from './commands/wda.js'
 
@@ -14,13 +15,13 @@ bot.on('message', (event) => {
   if (event.message.type === 'text') {
     if (event.message.text.startsWith('查農場')) {
       commandFarm(event)
+    } else if (event.message.text.startsWith('查伴手禮')) {
+      commandSouvenir(event)
     } else if (event.message.text === 'wda') {
       commandWda(event)
     }
   } else if (event.message.type === 'location') {
     commandUbike(event)
-  } else if (event.message.type === 'Name') {
-    commandSouvenir(event)
   }
 })
 
